@@ -24,7 +24,7 @@ bg_color = '#234e82'
 direction = None
 key = None
 
-textmodule = pytextui.TextModule(screen, font=pygame.Font('./fonts/Metropolis.otf', 30))
+textmodule = pytextui.TextModule(screen, font=pygame.Font(None, 30))
 
 box = pytextui.ScrollSequenceBox(screen)
 box.add_line('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at sem odio. Duis vel erat eu turpis porttitor ornare sed sit amet est. In a ante bibendum, vulputate velit sit amet, luctus mi. Cras suscipit tristique enim. Sed orci mi, hendrerit in tortor sit amet, lacinia commodo magna. Curabitur accumsan vehicula nulla, viverra posuere urna. Phasellus posuere purus quis libero venenatis, at ullamcorper mauris pharetra. Praesent ac pharetra felis. Integer euismod rutrum arcu eu malesuada. Donec sagittis arcu non dignissim posuere. Etiam bibendum lorem ipsum, ac accumsan nibh tristique sed. Curabitur ornare arcu in libero sodales, fermentum imperdiet orci tempor. ')
