@@ -11,4 +11,4 @@ PyTextUI has:
 - Sequential scrollable JSON text box (same as above, but with a JSON file instead of array)
 - Multi-font box (can add lines to display with multiple fonts)
 
-All four text boxes can handle newline characters, unlike the base pygame module.
+All text boxes can handle newline characters, unlike the base pygame module.
