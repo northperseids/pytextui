@@ -7,7 +7,7 @@ pygame.font.init()
 class TextModule():
     """
     Base module for text boxes.\n
-    Has methods to set values for things like max characters per line, max lines per screen, font, and colors.
+    Has methods to set values for things like max characters per line, max lines per screen, and default font/colors.
     """
     def __init__(self, surface:pygame.Surface):
         super().__init__()

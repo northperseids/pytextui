@@ -1,6 +1,6 @@
 # Own folders/files
 fonts/
-main.py
+example.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
