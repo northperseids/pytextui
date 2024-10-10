@@ -16,15 +16,21 @@ dt = 0
 
 # USER VARS
 font = pygame.font.Font(None, 40)
+lincos = pygame.font.Font('./fonts/Lincos.ttf', 60)
+english = pygame.font.Font('./fonts/Metropolis.otf', 30)
 bg_color = '#234e82'
 
 # FUNCTIONAL VARS
-mouse_dir = None
+direction = None
 key = None
 
-ui = pytextui.TextModule(screen)
+textmodule = pytextui.TextModule(screen, font=pygame.Font('./fonts/Metropolis.otf', 30))
 
-#async def main():
+box = pytextui.ScrollSequenceBox(screen)
+box.add_line('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at sem odio. Duis vel erat eu turpis porttitor ornare sed sit amet est. In a ante bibendum, vulputate velit sit amet, luctus mi. Cras suscipit tristique enim. Sed orci mi, hendrerit in tortor sit amet, lacinia commodo magna. Curabitur accumsan vehicula nulla, viverra posuere urna. Phasellus posuere purus quis libero venenatis, at ullamcorper mauris pharetra. Praesent ac pharetra felis. Integer euismod rutrum arcu eu malesuada. Donec sagittis arcu non dignissim posuere. Etiam bibendum lorem ipsum, ac accumsan nibh tristique sed. Curabitur ornare arcu in libero sodales, fermentum imperdiet orci tempor. ')
+box.add_line('Nunc ornare pretium sem, vel vulputate eros pellentesque at. Maecenas et lectus efficitur, fringilla est id, suscipit justo. Quisque laoreet odio sagittis, consequat sapien at, pretium massa. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ex lectus, bibendum sed quam non, condimentum tempor tortor. Nam non lacus orci. Mauris pharetra erat at dolor venenatis venenatis. Fusce ac mauris posuere, commodo ex nec, molestie sem. Sed id aliquam nibh, eu molestie nisi. Nunc non tellus quis nisi ultricies bibendum. ')
+box.add_line('Hello world!')
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -34,21 +40,18 @@ while running:
         elif event.type == pygame.KEYUP:
             key = None
         elif event.type == pygame.MOUSEWHEEL:
-            mouse_dir = event.y
+            direction = event.y
     
     # clear screeen with background color
     screen.fill(bg_color)
     
-    #ui.draw_text_box("Hello world!\nHello world!\n\nHi there!", font)
-    #ui.draw_scroll_box("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", font, mouse_dir)
-    #ui.draw_sequence_box('./dialogue_example.json', font, key)
-    ui.draw_scroll_sequence_box('./dialogue_example_scroll.json', font, key, mouse_dir)
+    box.draw(key, direction)
 
     # update pygame display
     pygame.display.flip()
 
     # reset input vals to prevent continuous triggers without mouse input
-    mouse_dir = 0
+    direction = 0
     key = None
 
     dt = clock.tick(30) / 1000

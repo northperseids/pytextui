@@ -2,8 +2,13 @@
 
 Minimal text box module for pygame.
 
-PyTextUI has four text boxes: regular text box, scrolling text box, sequential text box, and scrolling sequential text box.
+PyTextUI has:
+- Plain text box
+- Scrollable text box
+- Sequential text box (cycles through an array of lines when a key is pressed)
+- Sequential JSON text box (cycles through lines specified in a JSON file when a key is pressed)
+- Sequential scrollable text box (same as above, but scrollable)
+- Sequential scrollable JSON text box (same as above, but with a JSON file instead of array)
+- Multi-font box (can add lines to display with multiple fonts)
 
 All four text boxes can handle newline characters, unlike the base pygame module.
-
-This repo also provides a sample main.py as well as sample JSON files demonstrating how to use each text box.
