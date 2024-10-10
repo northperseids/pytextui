@@ -4,7 +4,7 @@ import json
 
 class TextModule():
     """
-    Module for text, scroll, and dialogue boxes. Must be initialized OUTSIDE of the event loop to function properly.\n
+    Module for text, scroll, and sequential text boxes. Must be initialized OUTSIDE of the event loop to function properly.\n
     (Default text values: max_chars = 40, max_lines = 10, key trigger = Spacebar. Change these with "set_[property]" functions.)
     """
     def __init__(self, surface:pygame.Surface):
@@ -59,7 +59,7 @@ class TextModule():
 
     def draw_scroll_box(self, text:str, font:pygame.font.Font, direction:int):
         """
-        Draws a scroll-enabled box with given text.\n
+        Draws a scroll-enabled box with given text and font.\n
         Needs to be given a mousewheel direction generated from the event loop.
         """
         self.arr = self.__get_wrap_arr(text)
@@ -104,7 +104,7 @@ class TextModule():
     
     def draw_sequence_box(self, dialogue_file, font, key):
         """
-        Draw a box that cycles through lines provided in a JSON file.\n
+        Draw a box that cycles through lines provided in a JSON file in the given font.\n
         JSON format:\n
         [{"text":"line"}]
         """
@@ -119,7 +119,7 @@ class TextModule():
 
     def draw_scroll_sequence_box(self, dialogue_file:str, font:pygame.font.Font, key, direction:int):
         """
-        Draw a scroll box that cycles through lines provided in a JSON file.\n
+        Draw a scroll box that cycles through lines provided in a JSON file in the given font.\n
         JSON format:\n
         [{"text":"line"}]
         """

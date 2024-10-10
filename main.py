@@ -1,29 +1,20 @@
 """
 Example main.py.
 
-The asyncio stuff is important for pygbag.
-
-The textbox class CAN handle \n characters - pygame as-is typically cannot, although pygame-ce *might* be able to.
 """
 
-import asyncio
 import pygame
-from pycompass import TextModule
+import pytextui
 
 pygame.init()
 screen = pygame.display.set_mode((700,700))
-pygame.display.set_caption('LANG')
+pygame.display.set_caption('EXAMPLE')
 clock = pygame.time.Clock()
 pygame.font.init()
 running = True
 dt = 0
 
 # USER VARS
-max_chars = 40
-max_lines = 10
-textbox_bg_color = (0,0,0,200)
-border_color = 'White'
-font_color = 'White'
 font = pygame.font.Font(None, 40)
 bg_color = '#234e82'
 
@@ -31,16 +22,13 @@ bg_color = '#234e82'
 mouse_dir = None
 key = None
 
-ui = TextModule(screen)
+ui = pytextui.TextModule(screen)
 
 #async def main():
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        elif event.type == pygame.MOUSEBUTTONUP:
-            # will need to implement mouse clicks here
-            pass
         elif event.type == pygame.KEYDOWN:
             key = event.key
         elif event.type == pygame.KEYUP:
@@ -64,9 +52,6 @@ while running:
     key = None
 
     dt = clock.tick(30) / 1000
-#    await asyncio.sleep(0)
 
 # exit game when done
 pygame.quit()
-
-#asyncio.run(main())
